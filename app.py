@@ -118,7 +118,7 @@ def state_analysis(df,year):
     st_map = st_folium(map,width=700,height = 500)
 
 
-    st.subheader("Bar Plot")
+    st.subheader("~Bar Plot")
     fig_bar = px.bar(
             df.sort_values(by="Count", ascending=False),
             x="State",
@@ -137,7 +137,7 @@ def state_analysis(df,year):
     st.plotly_chart(fig_bar, use_container_width=True)
 
     top_rows = df.sort_values(by="Count", ascending=False).head(20)
-    st.subheader("Top 20 States with Maximum Number of Accidents")
+    st.subheader("~Top 20 States with Maximum Number of Accidents")
     st.table(top_rows.reset_index(drop=True))
 
 
@@ -153,7 +153,7 @@ def state_analysis(df,year):
 def city_analysis():
 
     cities_plot = pd.read_csv("datasets/Cities_barChart.csv")
-    st.subheader("Bar Plot")
+    st.subheader("~Bar Plot")
     fig_bar = px.bar(
             cities_plot[:100].sort_values(by="Accident_Count", ascending=False),
             x="city",
@@ -171,7 +171,7 @@ def city_analysis():
 
     st.plotly_chart(fig_bar, use_container_width=True)
 
-    st.subheader("Cities with more than 1000 accidents per Year")
+    st.subheader("~Cities with more than 1000 accidents per Year")
     m = folium.Map(location=[38, -90], zoom_start=4, scrollWheelZoom=False)
 
     cities_plot = pd.read_csv("datasets/Cities_barChart.csv")
@@ -189,7 +189,7 @@ def city_analysis():
     st_folium(m, width=900)
 
     top_rows = cities_plot.sort_values(by="Accident_Count", ascending=False).head(20)
-    st.subheader("Top 20 Cities with Maximum Number of Accidents")
+    st.subheader("~Top 20 Cities with Maximum Number of Accidents")
     st.table(top_rows.reset_index(drop=True))
 
     st.markdown("""
@@ -221,7 +221,7 @@ def traffic_features_analysis(df):
     plt.grid(True, linestyle='--', alpha=0.5)
 
     st.pyplot(plt)
-    st.subheader("Accident_Count with Some Traffic Features Nearby")
+    st.subheader("~Accident_Count with Some Traffic Features Nearby")
 
     st.table(df)
 
@@ -255,7 +255,7 @@ def traffic_features_analysis(df):
 
 def street_analysis(df,street_geodata):
 
-    st.subheader("HeatMap for Regions which experience largest Severe Accidents")
+    st.subheader("~HeatMap for Regions which experience largest Severe Accidents")
 
     street_geodata = street_geodata.dropna(subset=["Start_Lat", "Start_Lng"])
 
@@ -265,7 +265,7 @@ def street_analysis(df,street_geodata):
 
     st_folium(m, width=900)
 
-    st.subheader("Most Frequent Accidental Streets for Each City")
+    st.subheader("~Most Frequent Accidental Streets for Each City")
     selected_city = st.selectbox("Select a city:", df["City"].unique())
 
     city_data = df[df["City"] == selected_city]
@@ -273,7 +273,7 @@ def street_analysis(df,street_geodata):
     
 
 def weather_analysis(w_df,v_df,wind_df):
-    st.subheader("-Bar Plot of various weather conditions")
+    st.subheader("~Bar Plot of various weather conditions")
     fig_bar = px.bar(
             w_df,
             x="Weather_Condition",
@@ -291,21 +291,21 @@ def weather_analysis(w_df,v_df,wind_df):
 
     st.plotly_chart(fig_bar, use_container_width=True)
 
-    st.subheader("-Cities experiencing accidents during high windspeed")
+    st.subheader("~Cities experiencing accidents during high windspeed")
 
     col1, col2, col3 = st.columns([1, 2, 2])  
 
     with col2:  
       st.dataframe(wind_df, height=300)
     
-    st.subheader("-Accident Count in Cities Under Zero Visibility Conditions")
+    st.subheader("~Accident Count in Cities Under Zero Visibility Conditions")
 
     col1, col2, col3 = st.columns([1, 3, 2])  
 
     with col2:  
       st.dataframe(v_df, height=300)
 
-    st.subheader("-Frequent high precipitation spots")
+    st.subheader("~Frequent high precipitation spots")
     data = {'Cities': ['Brooklyn', 'Jersey City', 'New York', 'Miami', 'Baton Rouge'],
         'Accident_Count': [355, 66,63, 36, 13]}
 
