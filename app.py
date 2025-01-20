@@ -95,7 +95,7 @@ def state_analysis(df,year):
     map = folium.Map(location=[38,-96.5],zoom_start=4,scrollWheelZoom=False , tiles="CartoDB positron")
     
     choropleth = folium.Choropleth(
-        geo_data="us-state-boundaries.geojson",
+        geo_data="datasets/us-state-boundaries.geojson",
         data = df,
         columns=('State','Count'),
         key_on = 'feature.id',
