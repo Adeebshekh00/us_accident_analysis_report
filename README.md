@@ -24,7 +24,7 @@ The analysis is showcased through a Streamlit application. You can access the de
 
 The dataset used for this analysis is publicly available and can be accessed from the following link:
 
-[[Dataset URL](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents)  
+[Dataset URL](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents)  
 
 ## Requirements
 
