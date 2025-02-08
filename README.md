@@ -44,3 +44,6 @@ Escape(run the following command)
 ```markdown
 pip install -r requirements.txt
 ```
+
+##Project Video
+https://github.com/user-attachments/assets/8d5940f6-29f7-45de-9b9a-1f1fe32bdee2
